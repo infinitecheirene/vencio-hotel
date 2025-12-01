@@ -1,9 +1,37 @@
 "use client"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Award, Heart, Leaf, Users, MapPin, Phone, Mail, Clock, Utensils } from "lucide-react"
+
+export default function HomePage (){
+const [currentSlide, setCurrentSlide] = useState(0)
+
+const heroSlides = [
+  {
+    image:"/banner1.jpg",
+    title:"Relax in Garden-Inspired Comfort",
+    subtitle:"Your Home for Relaxation, Dining & Celebrations",
+  },
+  {
+    image:"/restaurant.jpg",
+    title:"Delicious Moments in Every Bite",
+    subtitle:"Your Home for Relaxation, Dining & Celebrations",
+  },
+  {
+    image:"/catering.jpg",
+    title:"Celebrate Life’s Best Moments With Us",
+    subtitle:"Your Home for Relaxation, Dining & Celebrations",
+  },
+]
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
+    }, 6000)
+    return () => clearInterval(timer)
+  }, [heroSlides.length])
 
 const stats = [
   { value: "2008", label: "Established" },
@@ -53,7 +81,6 @@ const features = [
   },
 ]
 
-export default function AboutPage() {
   return (
     <div className="min-h-screen">
       <Header />
