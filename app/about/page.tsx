@@ -1,9 +1,11 @@
 "use client"
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { Award, Heart, Leaf, Users, MapPin, Phone, Mail, Clock, Utensils } from "lucide-react"
+import { Award, Heart, Leaf, Users, Utensils, BedDouble, ArrowRight, PartyPopper } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const stats = [
   { value: "2008", label: "Established" },
@@ -59,21 +61,26 @@ export default function AboutPage() {
       <Header />
       <main className="pt-20">
         {/* Hero Section */}
-        <section className="relative py-20 bg-linear-to-br bg-red-700/50">
+        <section className="relative h-[90vh] md:h-[60vh] sm:h-[40vh] overflow-hidden bg-fixed">
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
             style={{
               backgroundImage: "url('/hero-banner.jpg')",
             }}
-          />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-[#D4AF37] uppercase tracking-widest text-2xl font-semibold mb-3">Our Story</p>
-              <h1 className="text-4xl md:text-7xl font-serif font-bold text-[#F5E6C8] mb-6">
-                About Vencio&apos;s Garden
-              </h1>
-              <p className="text-[#F5E6C8]/80 max-w-3xl mx-auto text-xl">
-                A serene escape in the heart of Calapan City, Oriental Mindoro
-              </p>
+          >
+            <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/10 to-black/40" />
+            <div className="absolute inset-0 bg-linear-to-r from-black/20 via-transparent to-black/30" />
+          </div>
+
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="text-center max-w-xl lg:max-w-7xl mx-auto px-6 lg:px-8 sm:my-10">
+                <h1 className="text-3xl sm:text-3xl font-medium md:text-4xl lg:text-5xl mb-6 text-gray-200 text-balance leading-tight tracking-wide">
+                  About Vencio&apos;s Garden
+                </h1>
+                <p className="text-xl md:text-2xl mb-10 text-pretty max-w-2xl mx-auto text-white font-normal leading-relaxed">
+                  A serene escape in the heart of Calapan City, Oriental Mindoro
+                </p>
+            </div>
           </div>
         </section>
 
@@ -92,7 +99,7 @@ export default function AboutPage() {
         </section>
 
         {/* Story Section */}
-        <section className="py-10 lg:py-16 bg-white-100">
+        <section className="py-10 bg-white-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-3">
             <div>
               <p className="text-[#D4AF37] uppercase tracking-widest text-md lg:text-xl mb-3">A Place You Can Call Home</p>
@@ -147,103 +154,130 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            
-            {/* Features Section */}
-            <div className="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
-              <div className="container mx-auto px-4">
-                <div className="text-center mb-12">
-                  <p className="text-[#D4AF37] uppercase tracking-widest text-md lg:text-xl mb-3">What Makes Us Special</p>
-                  <h2 className="text-3xl md:text-4xl font-bold text-[#5C0A1E] mb-4 text-balance">Our Features</h2>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                  {features.map((feature, index) => (
-                    <div key={index} className="bg-white p-8 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow">
-                      <div className="w-16 h-16 mx-auto mb-5 rounded-full bg-[#5C0A1E] flex items-center justify-center">
-                        <feature.icon className="w-8 h-8 text-[#D4AF37]" />
-                      </div>
-                      <h3 className="font-serif font-semibold text-[#5C0A1E] text-xl mb-3">{feature.title}</h3>
-                      <p className="text-[#5C0A1E]/70">{feature.description}</p>
-                    </div>
-                  ))}
-              </div>
-            </div>
-            </div>
           </div>
         </section>
 
-        {/* Location & Contact Section */}
-        <section className="py-10 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <p className="text-[#D4AF37] uppercase tracking-widest text-md lg:text-xl mb-3">Visit Us</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#5C0A1E] mb-4 text-balance">Find Us in Calapan City</h2>
-            </div>
-
-            <div className="max-w-4xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-[#5C0A1E] text-[#F5E6C8] p-8 rounded-lg shadow-xl">
-                  <div className="flex items-center gap-3 mb-6">
-                    <MapPin className="w-8 h-8 text-[#D4AF37]" />
-                    <h3 className="font-serif font-bold text-2xl">Address</h3>
-                  </div>
-                  <p className="text-lg mb-2">Vencio&apos;s Garden Hotel & Restaurant</p>
-                  <p className="text-[#F5E6C8]/90 mb-6">
-                    Tawiran, Calapan City<br />
-                    Oriental Mindoro<br />
-                    Philippines
-                  </p>
-                  <div className="pt-4 border-t border-[#F5E6C8]/20">
-                    <p className="text-sm text-[#F5E6C8]/70">
-                      Easily accessible from the main highway and city center
-                    </p>
-                  </div>
-                </div>
-
-                <div className="bg-gradient-to-br from-[#F5E6C8] to-[#D4AF37]/20 p-8 rounded-lg shadow-xl">
-                  <h3 className="font-serif font-bold text-2xl text-[#5C0A1E] mb-6">Contact Information</h3>
-                  <div className="space-y-5">
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#5C0A1E] flex items-center justify-center flex-shrink-0">
-                        <Phone className="w-5 h-5 text-[#D4AF37]" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#5C0A1E]">Phone</p>
-                        <p className="text-[#5C0A1E]/70">0918 957 2855</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#5C0A1E] flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-5 h-5 text-[#D4AF37]" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#5C0A1E]">Email</p>
-                        <p className="text-[#5C0A1E]/70">venciosgarden@yahoo.com</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#5C0A1E] flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-5 h-5 text-[#D4AF37]" />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#5C0A1E]">Reception Hours</p>
-                        <p className="text-[#5C0A1E]/70">24/7 Available</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+        {/* Services Section */}
+          <section className="py-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <p className="text-[#D4AF37] uppercase tracking-widest text-md lg:text-xl mb-3">
+                  What We Offer
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-[#5C0A1E]">
+                  Our Services
+                </h2>
               </div>
 
-              <div className="mt-8 bg-gradient-to-r from-[#5C0A1E] to-[#8B1538] text-[#F5E6C8] p-6 rounded-lg text-center">
-                <p className="text-lg mb-2">🌴 Located in Tawiran, Calapan City, Oriental Mindoro 🌴</p>
-                <p className="text-[#F5E6C8]/80">Your peaceful garden retreat awaits</p>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {[
+                  {
+                    title: "HOTEL",
+                    image: "/icon-256x256.png",
+                    description: (
+                      <>
+                        Relax in our well-appointed rooms, designed to cater to every traveler’s needs.
+                      </>
+                    )
+                  },
+                  {
+                    title: "RESTAURANT",
+                    image: "/resto-logo.png",
+                    description: (
+                      <>
+                        Enjoy a symphony of flavors with our wide array of freshly prepared dishes, from seafood specialties to hearty Filipino favorites.
+                      </>
+                    )
+                  },
+                  {
+                    title: "CATERING",
+                    image: "/catering-logo.jpg",
+                    description: (
+                      <>
+                        Whether it’s a wedding, birthday, or corporate event, we deliver unforgettable experiences with customized menus and exceptional service.
+                      </>
+                    )
+                  }
+                ].map((item, idx) => (
+                  <Card
+                    key={idx}
+                    className="rounded-2xl overflow-hidden shadow-xl border border-red-300 
+                              transition-all duration-300 hover:scale-105 p-0 pb-5 mb-10"
+                  >
+                    <CardHeader className="p-0">
+                      <CardTitle className="p-0">
+                        <div
+                          className="h-50 bg-contain bg-no-repeat bg-center w-full"
+                          style={{ backgroundImage: `url(${item.image})` }}
+                        />
+                      </CardTitle>
+                    </CardHeader>
+
+                    <CardContent>
+                      <div className="p-2">
+                        <h3 className="text-2xl font-bold mb-4 text-[#5C0A1E] text-center">
+                          {item.title}
+                        </h3>
+                        <p className="mb-6 text-justify">{item.description}</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </section>
+
+        {/* Banner Section */}
+          <section className="py-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold text-[#5C0A1E]">
+                  COME AND EXPERIENCE THE <span className="text-[#D4AF37]">VENCIO&apos;S DIEFFERENCE</span>
+                </h2>
+              </div>
+
+              <span>Whether you&apos;re here for business, leisure, or celebration, Vencio&apos;s Garden Hotel & Restaurant promises warm hospitality, great food, and a memorable stay.</span>
+            </div>
+          </section>
+
+        <div className="h-1 bg-[#D4AF37]"/>
+
+        {/* CTA Section*/}
+        <section className="pb-10 pt-16 bg-[#5C0A1E] shadow-lg">
+          <div className="container mx-auto px-4 max-w-4xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-gray-300">
+                  Vencio's Garden
+                </h2>
+                <p className="text-[#ecd8af] uppercase tracking-widest text-md">
+                  Hotel & Restaurant
+                </p>
+              </div>
+              <div
+                className="h-20 w-20 bg-center bg-contain bg-no-repeat"
+                style={{ backgroundImage: "url('/logo.png')" }}
+              />
+            </div>
+
+
+            <div className="max-w-4xl mx-auto">
+              <div className="flex flex-col sm:items-end items-start mb-12">
+                <div className="text-gray-200 text-lg italic space-y-1 text-right">
+                  <p>Hotel: 288-7789</p>
+                  <p>Restaurant: 288-7790</p>
+                  <p>Takeout: 0918 957 2855</p>
+                  <p>Email: venciosgarden@yahoo.com</p>
+                  <p>Facebook: @venciosgardenhotel</p>
+                  <p>Instagram: @venciosgarden</p>
+                  <p>#08 Nautical Highway, Tawiran, Calapan City, Oriental Mindoro</p>
+                </div>
               </div>
             </div>
           </div>
         </section>
       </main>
+        <div className="h-1 bg-[#D4AF37]"/>
       <Footer />
     </div>
   )
