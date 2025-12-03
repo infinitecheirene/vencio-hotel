@@ -25,6 +25,7 @@ export function Header() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/rooms", label: "Rooms" },
+    { href: "/restaurant", label: "Dine"},
     { href: "/reservation", label: "Reservation" },
     { href: "/contact", label: "Contact" },
   ]

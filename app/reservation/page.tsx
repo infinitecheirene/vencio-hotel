@@ -314,7 +314,7 @@ export default function ReservationPage() {
       <Header />
       <main className="pt-20">
         {/* Hero Section - Burgundy gradient matching logo */}
-        <section className="relative py-20 bg-gradient-to-br from-rose-950 via-red-900 to-rose-950 overflow-hidden">
+        <section className="relative py-20 bg-linear-to-br from-rose-950 via-red-900 to-rose-950 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div
               className="absolute inset-0"
@@ -351,7 +351,7 @@ export default function ReservationPage() {
                     <div key={s.num} className="flex items-center">
                       <div className="flex flex-col items-center gap-2">
                         <div
-                          className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold transition-all duration-500 ${step >= s.num ? "bg-gradient-to-br from-rose-800 to-red-900 text-white shadow-lg" : "bg-stone-100 text-stone-400 border-2 border-stone-200"}`}
+                          className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold transition-all duration-500 ${step >= s.num ? "bg-linear-to-br from-rose-800 to-red-900 text-white shadow-lg" : "bg-stone-100 text-stone-400 border-2 border-stone-200"}`}
                         >
                           {step > s.num ? <CheckIcon className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
                         </div>
@@ -363,7 +363,7 @@ export default function ReservationPage() {
                       </div>
                       {idx < 2 && (
                         <div
-                          className={`w-12 md:w-24 h-1.5 mx-2 rounded-full transition-all duration-500 ${step > s.num ? "bg-gradient-to-r from-rose-800 to-red-900" : "bg-stone-200"}`}
+                          className={`w-12 md:w-24 h-1.5 mx-2 rounded-full transition-all duration-500 ${step > s.num ? "bg-linear-to-r from-rose-800 to-red-900" : "bg-stone-200"}`}
                         />
                       )}
                     </div>
@@ -389,14 +389,14 @@ export default function ReservationPage() {
                         <div className="inline-flex bg-stone-100 p-1.5 rounded-2xl">
                           <button
                             onClick={() => handleEventTypeChange("single")}
-                            className={`flex items-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${eventType === "single" ? "bg-gradient-to-r from-rose-800 to-red-900 text-white shadow-lg" : "text-stone-500 hover:text-stone-700"}`}
+                            className={`flex items-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${eventType === "single" ? "bg-linear-to-r from-rose-800 to-red-900 text-white shadow-lg" : "text-stone-500 hover:text-stone-700"}`}
                           >
                             <SunIcon className="w-5 h-5" />
                             <span>Single Day Event</span>
                           </button>
                           <button
                             onClick={() => handleEventTypeChange("multi")}
-                            className={`flex items-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${eventType === "multi" ? "bg-gradient-to-r from-rose-800 to-red-900 text-white shadow-lg" : "text-stone-500 hover:text-stone-700"}`}
+                            className={`flex items-center gap-3 px-8 py-4 rounded-xl font-semibold transition-all duration-300 ${eventType === "multi" ? "bg-linear-to-r from-rose-800 to-red-900 text-white shadow-lg" : "text-stone-500 hover:text-stone-700"}`}
                           >
                             <MoonIcon className="w-5 h-5" />
                             <span>Multi-Day Event</span>
@@ -408,8 +408,8 @@ export default function ReservationPage() {
                         {/* Left Column: Calendar */}
                         <div className="space-y-6">
                           <div>
-                            <Label className="text-rose-950 mb-4 block text-lg font-bold flex items-center gap-2">
-                              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center">
+                            <Label className="text-rose-950 mb-4 text-lg font-bold flex items-center gap-2">
+                              <div className="w-8 h-8 rounded-lg bg-linear-to-br from-amber-500 to-amber-600 flex items-center justify-center">
                                 <CalendarIcon className="w-4 h-4 text-white" />
                               </div>
                               {eventType === "single" ? "Event Date" : "Event Dates"}
@@ -470,7 +470,7 @@ export default function ReservationPage() {
                                           isPast
                                             ? "text-stone-300 cursor-not-allowed"
                                             : isStart || isEnd || isSingle
-                                              ? "bg-gradient-to-br from-amber-500 to-amber-600 text-white shadow-lg scale-105"
+                                              ? "bg-linear-to-br from-amber-500 to-amber-600 text-white shadow-lg scale-105"
                                               : inRange
                                                 ? "bg-amber-100 text-rose-900"
                                                 : isToday(day)
@@ -570,7 +570,7 @@ export default function ReservationPage() {
                                       <div className="flex flex-col">
                                         <span className="font-semibold text-rose-950">{venue.name}</span>
                                         <span className="text-sm text-stone-500">
-                                          ${venue.price}/day - {venue.size} - Max {venue.capacity} guests
+                                          ₱{venue.price}/day - {venue.size} - Max {venue.capacity} guests
                                         </span>
                                       </div>
                                     </SelectItem>
@@ -616,7 +616,7 @@ export default function ReservationPage() {
                         {/* Right Column: Venue Details */}
                         <div className="space-y-6">
                           {selectedVenueData ? (
-                            <div className="bg-gradient-to-br from-rose-50 to-amber-50 p-6 rounded-2xl border-2 border-rose-200 sticky top-24">
+                            <div className="bg-linear-to-br from-rose-50 to-amber-50 p-6 rounded-2xl border-2 border-rose-200 sticky top-24">
                               <h3 className="text-2xl font-serif font-bold text-rose-950 mb-4">
                                 {selectedVenueData.name}
                               </h3>
@@ -636,7 +636,7 @@ export default function ReservationPage() {
                                 <div className="text-center p-3 bg-white rounded-xl border border-stone-200">
                                   <CalendarIcon className="w-5 h-5 text-amber-600 mx-auto mb-1" />
                                   <p className="text-xs text-stone-500">Price/Day</p>
-                                  <p className="font-bold text-rose-950">${selectedVenueData.price}</p>
+                                  <p className="font-bold text-rose-950">₱{selectedVenueData.price}</p>
                                 </div>
                               </div>
 
@@ -651,7 +651,7 @@ export default function ReservationPage() {
                                   </div>
                                   <div className="h-3 bg-stone-200 rounded-full overflow-hidden">
                                     <div
-                                      className="h-full bg-gradient-to-r from-amber-500 to-amber-600 transition-all duration-500"
+                                      className="h-full bg-linear-to-r from-amber-500 to-amber-600 transition-all duration-500"
                                       style={{
                                         width: `${Math.min((Number.parseInt(attendees) / selectedVenueData.capacity) * 100, 100)}%`,
                                       }}
@@ -685,7 +685,7 @@ export default function ReservationPage() {
                                     </div>
                                     <div className="flex justify-between items-center pt-2 border-t border-stone-200">
                                       <span className="font-bold text-rose-950">Venue Total</span>
-                                      <span className="text-2xl font-bold text-amber-600">${venueTotal}</span>
+                                      <span className="text-2xl font-bold text-amber-600">₱{venueTotal}</span>
                                     </div>
                                   </div>
 
@@ -705,7 +705,7 @@ export default function ReservationPage() {
                                                 {room.name} x {quantity}
                                               </span>
                                               <span className="text-rose-950 font-medium">
-                                                ${room.price * quantity * numberOfNights}
+                                                ₱{room.price * quantity * numberOfNights}
                                               </span>
                                             </div>
                                           )
@@ -713,15 +713,15 @@ export default function ReservationPage() {
                                       </div>
                                       <div className="pt-2 border-t border-amber-200 flex justify-between">
                                         <span className="text-sm font-semibold text-rose-950">Rooms Total</span>
-                                        <span className="text-lg font-bold text-amber-600">${roomTotal}</span>
+                                        <span className="text-lg font-bold text-amber-600">₱{roomTotal}</span>
                                       </div>
                                     </div>
                                   )}
 
-                                  <div className="mt-4 p-4 bg-gradient-to-r from-rose-800 to-red-900 rounded-xl">
+                                  <div className="mt-4 p-4 bg-linear-to-r from-rose-800 to-red-900 rounded-xl">
                                     <div className="flex justify-between items-center">
                                       <span className="text-white font-semibold">Grand Total</span>
-                                      <span className="text-3xl font-bold text-amber-400">${totalPrice}</span>
+                                      <span className="text-3xl font-bold text-amber-400">₱{totalPrice}</span>
                                     </div>
                                   </div>
                                 </div>
@@ -779,11 +779,11 @@ export default function ReservationPage() {
                                 <div className="mb-4">
                                   <h4 className="font-bold text-rose-950 mb-1">{room.name}</h4>
                                   <p className="text-lg font-bold text-amber-600">
-                                    ${room.price}
+                                    ₱{room.price}
                                     <span className="text-sm text-stone-500">/night</span>
                                   </p>
                                   <p className="text-sm text-rose-900/70 font-semibold">
-                                    ${room.price * numberOfNights} total
+                                    ₱{room.price * numberOfNights} total
                                   </p>
                                 </div>
                                 <div className="flex flex-wrap gap-2 text-xs text-stone-600 mb-4">
@@ -818,7 +818,7 @@ export default function ReservationPage() {
 
                       {/* Price Summary */}
                       {selectedVenueData && isDateSelected && (
-                        <div className="bg-gradient-to-br from-rose-100 to-amber-50 p-6 rounded-2xl border-2 border-rose-200">
+                        <div className="bg-linear-to-br from-rose-100 to-amber-50 p-6 rounded-2xl border-2 border-rose-200">
                           <h3 className="text-xl font-bold text-rose-950 mb-4">Booking Summary</h3>
                           <div className="space-y-3">
                             <div className="flex justify-between items-center pb-2 border-b border-stone-200">
@@ -830,7 +830,7 @@ export default function ReservationPage() {
                                     : `${numberOfNights} ${numberOfNights === 1 ? "day" : "days"}`}
                                 </p>
                               </div>
-                              <span className="font-bold text-rose-950 text-lg">${venueTotal}</span>
+                              <span className="font-bold text-rose-950 text-lg">₱{venueTotal}</span>
                             </div>
 
                             {eventType === "multi" && needRooms && Object.keys(selectedRooms).length > 0 && (
@@ -848,7 +848,7 @@ export default function ReservationPage() {
                                         {room.name} x {quantity} ({numberOfNights}{" "}
                                         {numberOfNights === 1 ? "night" : "nights"})
                                       </span>
-                                      <span className="text-rose-950 font-semibold">${roomTotalPrice}</span>
+                                      <span className="text-rose-950 font-semibold">₱{roomTotalPrice}</span>
                                     </div>
                                   )
                                 })}
@@ -858,7 +858,7 @@ export default function ReservationPage() {
                             <div className="flex justify-between items-center pt-3">
                               <span className="text-xl font-bold text-rose-950">Total Amount</span>
                               <div className="text-right">
-                                <span className="text-3xl font-bold text-amber-600">${totalPrice}</span>
+                                <span className="text-3xl font-bold text-amber-600">₱{totalPrice}</span>
                                 <p className="text-sm text-stone-500">
                                   {eventType === "single"
                                     ? "for 1 day"
@@ -871,7 +871,7 @@ export default function ReservationPage() {
                       )}
 
                       <Button
-                        className="w-full bg-gradient-to-r from-rose-800 to-red-900 hover:from-rose-900 hover:to-red-950 text-white h-14 text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl"
+                        className="w-full bg-linear-to-r from-rose-800 to-red-900 hover:from-rose-900 hover:to-red-950 text-white h-14 text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl"
                         onClick={() => setStep(2)}
                         disabled={!isDateSelected || !selectedVenue}
                       >
@@ -966,7 +966,7 @@ export default function ReservationPage() {
                           Back
                         </Button>
                         <Button
-                          className="flex-1 bg-gradient-to-r from-rose-800 to-red-900 hover:from-rose-900 hover:to-red-950 text-white h-14 text-lg font-bold shadow-lg transition-all duration-300"
+                          className="flex-1 bg-linear-to-r from-rose-800 to-red-900 hover:from-rose-900 hover:to-red-950 text-white h-14 text-lg font-bold shadow-lg transition-all duration-300"
                           onClick={() => setStep(3)}
                           disabled={
                             !formData.organization ||
@@ -1107,12 +1107,12 @@ export default function ReservationPage() {
                                   <div>
                                     <span className="text-rose-950 font-semibold">{room.name}</span>
                                     <p className="text-sm text-stone-500">
-                                      {quantity} {quantity === 1 ? "room" : "rooms"} x ${room.price}/night x{" "}
+                                      {quantity} {quantity === 1 ? "room" : "rooms"} x ₱{room.price}/night x{" "}
                                       {numberOfNights} {numberOfNights === 1 ? "night" : "nights"}
                                     </p>
                                   </div>
                                   <span className="text-rose-950 font-bold text-lg">
-                                    ${room.price * quantity * numberOfNights}
+                                    ₱{room.price * quantity * numberOfNights}
                                   </span>
                                 </div>
                               )
@@ -1122,24 +1122,24 @@ export default function ReservationPage() {
                       )}
 
                       {/* Total Pricing */}
-                      <div className="bg-gradient-to-br from-rose-800 via-red-900 to-rose-900 p-8 rounded-2xl shadow-xl">
+                      <div className="bg-linear-to-br from-rose-800 via-red-900 to-rose-900 p-8 rounded-2xl shadow-xl">
                         <div className="space-y-4">
                           <div className="flex justify-between items-center text-white/90 pb-3 border-b border-white/20">
                             <span className="text-lg">
                               Venue ({numberOfDays} {numberOfDays === 1 ? "day" : "days"})
                             </span>
-                            <span className="text-xl font-bold">${venueTotal}</span>
+                            <span className="text-xl font-bold">₱{venueTotal}</span>
                           </div>
                           {roomTotal > 0 && (
                             <div className="flex justify-between items-center text-white/90 pb-3 border-b border-white/20">
                               <span className="text-lg">Accommodation</span>
-                              <span className="text-xl font-bold">${roomTotal}</span>
+                              <span className="text-xl font-bold">₱{roomTotal}</span>
                             </div>
                           )}
                           <div className="flex justify-between items-center pt-2">
                             <span className="text-2xl font-bold text-white">Total Amount</span>
                             <div className="text-right">
-                              <span className="text-4xl font-bold text-amber-400">${totalPrice}</span>
+                              <span className="text-4xl font-bold text-amber-400">₱{totalPrice}</span>
                               <p className="text-sm text-white/70">
                                 {eventType === "single"
                                   ? "for 1 day"
@@ -1166,8 +1166,8 @@ export default function ReservationPage() {
                         >
                           Back
                         </Button>
-                        <Button className="flex-1 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white h-14 text-lg font-bold shadow-lg transition-all duration-300">
-                          Submit Reservation Request
+                        <Button className="flex-1 bg-linear-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white h-14 text-lg font-bold shadow-lg transition-all duration-300">
+                          Submit
                         </Button>
                       </div>
                     </div>

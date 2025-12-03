@@ -162,7 +162,7 @@ const heroSlides = [
                     Unwind in our comfortable, well-appointed rooms crafted to provide every guest a relaxing and delightful stay.
                   </p>
                   <div className="flex justify-end">
-                    <Link href="/">
+                    <Link href="/rooms">
                       <button className="group flex items-center hover:underline text-[#5C0A1E] font-medium">
                         <span className="mr-1">Learn More</span>
                         <ArrowRight className="w-5 h-5" />
@@ -184,7 +184,7 @@ const heroSlides = [
                     Savor a symphony of flavors with fresh seafood specialties and Filipino favorites prepared to satisfy every craving.
                   </p>
                   <div className="flex justify-end">
-                    <Link href="/">
+                    <Link href="/restaurant">
                       <button className="group flex items-center hover:underline text-[#5C0A1E] font-medium">
                         <span className="mr-1">Learn More</span>
                         <ArrowRight className="w-5 h-5" />
@@ -206,7 +206,7 @@ const heroSlides = [
                     From weddings to corporate gatherings, we elevate your celebrations with tailored menus and exceptional service.
                   </p>
                   <div className="flex justify-end">
-                    <Link href="/">
+                    <Link href="/reservation">
                       <button className="group flex items-center hover:underline text-[#5C0A1E] font-medium">
                         <span className="mr-1">Learn More</span>
                         <ArrowRight className="w-5 h-5" />
@@ -457,7 +457,7 @@ const heroSlides = [
                   {
                     title: "RESTO MENU",
                     image: "/resto-menu.jpg",
-                    link: "/resto-menu",
+                    link: "/restaurant",
                     description: (
                       <>
                         Dive into local <b>Seafood</b> and <b>Pinoy favorites</b> crafted to
@@ -468,7 +468,7 @@ const heroSlides = [
                   {
                     title: "VENCIO'S TAKEOUTS",
                     image: "/takeout-menu.jpg",
-                    link: "/resto-menu",
+                    link: "/restaurant",
                     description: (
                       <>
                         Celebrate every occasion with our best-selling <b>Palabok</b>,
@@ -480,7 +480,7 @@ const heroSlides = [
                   {
                     title: "BUNS & ROLLS",
                     image: "/breads&rolls-menu.jpg",
-                    link: "/resto-menu",
+                    link: "/restaurant",
                     description: (
                       <>
                         From fluffy <b>Ensaymada</b> to flavorful <b>Bread Floss</b> and soft
@@ -634,8 +634,8 @@ const heroSlides = [
           </div>
         </section>
         
-        <div className="h-1 bg-[#D4AF37]"/>
         {/* CTA Section*/}
+        <div className="h-1 bg-[#D4AF37]"/>
         <section className="pb-10 pt-16 bg-[#5C0A1E] shadow-lg">
           <div className="container mx-auto px-4 max-w-4xl">
             <div className="flex items-center justify-between">

@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
@@ -11,6 +11,12 @@ import { Phone, Mail, Clock, Send, MessageCircle, CheckCircle2, Building2, Heart
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Link from "next/link"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
 export default function ContactPage() {
   const [pageLoading, setPageLoading] = useState(true)
@@ -87,38 +93,44 @@ export default function ContactPage() {
     }))
   }
 
+  const [openAcc1, setOpenAcc1] = React.useState(true);
+  const [openAcc2, setOpenAcc2] = React.useState(true);
+  const [openAcc3, setOpenAcc3] = React.useState(true);
+ 
+  const handleOpenAcc1 = () => setOpenAcc1((cur) => !cur);
+  const handleOpenAcc2 = () => setOpenAcc2((cur) => !cur);
+  const handleOpenAcc3 = () => setOpenAcc3((cur) => !cur);
 
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
-      <main className="min-h-screen">
-        {/* Hero Section */}
-          <section className="relative h-[90vh] md:h-[60vh] sm:h-[40vh] overflow-hidden bg-fixed">
+      <main className="pt-20">
+        
+        <section className="relative py-20 bg-linear-to-br from-rose-950 via-red-900 to-rose-950 overflow-hidden">
+          <div className="absolute inset-0 opacity-20">
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
+              className="absolute inset-0"
               style={{
-                backgroundImage: "url('/vencios-2.png')",
+                backgroundImage: "radial-gradient(circle at 2px 2px, rgba(212,175,55,0.3) 1px, transparent 0)",
+                backgroundSize: "40px 40px",
               }}
-            >
-              <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/10 to-black/40" />
-              <div className="absolute inset-0 bg-linear-to-r from-black/20 via-transparent to-black/30" />
-            </div>
-
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="text-center max-w-xl lg:max-w-7xl mx-auto px-6 lg:px-8 sm:my-10">
-                  <h1 className="text-3xl sm:text-3xl font-medium md:text-4xl lg:text-5xl mb-6 text-gray-200 text-balance leading-tight tracking-wide">
-                    Contact Us
-                  </h1>
-                  <p className="text-xl md:text-2xl mb-10 text-pretty max-w-2xl mx-auto text-white font-normal leading-relaxed">
-                    A serene escape in the heart of Calapan City, Oriental Mindoro
-                  </p>
-              </div>
-            </div>
-          </section>
+            />
+          </div>
+          <div className="relative container mx-auto px-4 text-center">
+            <p className="text-amber-400 uppercase tracking-[0.3em] text-lg mb-4 font-semibold">Relax in the heart of Calapan City</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white mb-4">
+              Contact Us            
+            </h1>
+            <p className="text-lg text-stone-300 max-w-2xl mx-auto">
+              A serene escape in the heart of Calapan City, Oriental Mindoro
+            </p>
+          </div>
+        </section>
 
         {/* Main Content Section */}
         <section className="max-w-7xl mx-auto px-4 py-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
             {/* Left Column - Contact Information */}
             <section className="space-y-8">
               <div className="space-y-4">
@@ -233,13 +245,13 @@ export default function ContactPage() {
                       <div className="w-24 h-24 rounded-full bg-linear-to-r from-green-600 to-green-500 flex items-center justify-center mx-auto mb-6 animate-bounce">
                         <CheckCircle2 className="w-12 h-12 text-white" />
                       </div>
-                      <h3 className="text-3xl font-bold text-red-800 mb-4">Message Sent!</h3>
-                      <p className="text-red-700 mb-8 text-lg">
+                      <h3 className="text-3xl font-bold text-[#5C0A1E] mb-4">Message Sent!</h3>
+                      <p className="text-[#5C0A1E]/80 mb-8 text-lg">
                         Thank you for reaching out. Our team will contact you within 30 minutes.
                       </p>
                       <Button
                         onClick={() => setSubmitted(false)}
-                        className="bg-linear-to-r from-red-700 to-red-600 hover:from-red-800 hover:to-red-700 px-8 py-3 rounded-full font-semibold"
+                        className="bg-[#5C0A1E] text-[#F5E6C8] px-8 py-3 rounded-full font-semibold"
                       >
                         Send Another Message
                       </Button>
@@ -254,13 +266,13 @@ export default function ContactPage() {
                               <X className="w-6 h-6 text-white" />
                             </div>
                             <div className="flex-1">
-                              <h4 className="font-bold text-red-800 mb-1">Error</h4>
-                              <p className="text-red-700">{error}</p>
+                              <h4 className="font-bold text-[#5C0A1E] mb-1">Error</h4>
+                              <p className="text-[#5C0A1E]/80">{error}</p>
                             </div>
                             <button
                               type="button"
                               onClick={() => setError(null)}
-                              className="text-red-600 hover:text-red-800 transition-colors"
+                              className="text-[#5C0A1E] transition-colors"
                               aria-label="Close error"
                             >
                               <X className="w-5 h-5" />
@@ -358,6 +370,118 @@ export default function ContactPage() {
                 </div>
               </div>
             </section>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <div className="h-1 bg-[#D4AF37]"/>
+        <section className="py-10 px-10 bg-[#F5E6C8]/30 shadow-lg">
+          <div className="text-center my-5">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#5C0A1E]">
+              Frequently Asked Questions
+            </h2>
+            <p className="py-5 text-[#5C0A1E]/90 text-lg ">
+              Find answers about the most frequently asked questions in Vencio's Garden Hotel & Restaurant. Your queries, simplified. 
+            </p>
+          </div>
+          <div className="flex items-center justify-center">
+            <Accordion
+              type="single"
+              collapsible
+              className="w-full max-w-3xl lg:max-w-6xl"
+              defaultValue="item-1"
+            >
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  Do you deliver Takeouts?
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    <b>No.</b> But we transact to local couriers within Calapan:<br/>
+                    <b>Hatid and Broooom Delivery Services</b>
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  Payment Methods
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    We accept <b>Cash and GCash</b> Transactions for private transactions.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  Can we book in advanced our choosen KTV rooms?
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    <b>Yes.</b> This would depend on the availability of the priate KTV rooms.
+                    We strongly advise to place your reservation in <b>advance</b> to minimize 
+                    waiting time.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  Payment Terms for KTV
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    For advance bookings, please settle <b>50%</b> of the total bill as down payment.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  How many hours can we stay inside the KTV?
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    Reservation is inclusive of 3 hours use of karaoke room.
+                  </p>
+                  <p>
+                    <b>For every additional hour,</b> <u>₱398</u> will be automatically added to your total bill.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-6">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  Discount for the Senior Citizen?
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    Please be advised we will deduct 20% to the highest meal consumed by senior/s.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-7">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  Payment Terms for Takeout Orders
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    To avoid any delays, we kindly ask that you <b>settle your bill before</b> receiving your order.
+                    Please also provide your <b>full name, list of orders</b> and <b>contact number</b> for any follow-up concerns.
+                  </p>
+                  <p>
+                    For <b>GCash payments</b>, please send a screenshot of your transaction as proof of payment.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="item-8">
+                <AccordionTrigger className="text-2xl lg:text-3xl text-[#5C0A1E]">
+                  How can I receive my order?
+                </AccordionTrigger>
+                <AccordionContent className="flex flex-col gap-4 text-xl text-balance text-[#5C0A1E]/80">
+                  <p>
+                    All takeout orders are either taken through pick-up or third-party delivery transactions.
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </section>
       </main>
