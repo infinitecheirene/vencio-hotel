@@ -65,35 +65,35 @@ export default function RestaurantPage (){
             <div className="container mx-auto px-4">
                 {/* Progress Steps */}
                 <div className="flex justify-center mb-12">
-                <div className="flex items-center gap-2 md:gap-4 bg-white rounded-2xl shadow-xl p-4 md:p-6">
-                    {[
-                    { num: 1, label: "Menu" },
-                    { num: 2, label: "Contact Info" },
-                    ].map((s, idx) => {
-                    const Icon = stepIcons[idx]
-                    return (
-                        <div key={s.num} className="flex items-center">
-                        <div className="flex flex-col items-center gap-2">
-                            <div
-                            className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold transition-all duration-500 ${step >= s.num ? "bg-linear-to-br from-rose-800 to-red-900 text-white shadow-lg" : "bg-stone-100 text-stone-400 border-2 border-stone-200"}`}
-                            >
-                            {step > s.num ? <CheckIcon className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
+                    <div className="flex items-center gap-2 md:gap-4 bg-white rounded-2xl shadow-xl p-4 md:p-6">
+                        {[
+                        { num: 1, label: "Menu" },
+                        { num: 2, label: "Contact Info" },
+                        ].map((s, idx) => {
+                        const Icon = stepIcons[idx]
+                        return (
+                            <div key={s.num} className="flex items-center">
+                            <div className="flex flex-col items-center gap-2">
+                                <div
+                                className={`w-14 h-14 rounded-2xl flex items-center justify-center font-bold transition-all duration-500 ${step >= s.num ? "bg-linear-to-br from-rose-800 to-red-900 text-white shadow-lg" : "bg-stone-100 text-stone-400 border-2 border-stone-200"}`}
+                                >
+                                {step > s.num ? <CheckIcon className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
+                                </div>
+                                <span
+                                className={`text-xs md:text-sm font-semibold hidden md:block transition-colors ${step >= s.num ? "text-rose-900" : "text-stone-400"}`}
+                                >
+                                {s.label}
+                                </span>
                             </div>
-                            <span
-                            className={`text-xs md:text-sm font-semibold hidden md:block transition-colors ${step >= s.num ? "text-rose-900" : "text-stone-400"}`}
-                            >
-                            {s.label}
-                            </span>
-                        </div>
-                        {idx < 1 && (
-                            <div
-                            className={`w-12 md:w-24 h-1.5 mx-2 rounded-full transition-all duration-500 ${step > s.num ? "bg-linear-to-r from-rose-800 to-red-900" : "bg-stone-200"}`}
-                            />
-                        )}
-                        </div>
-                    )
-                    })}
-                </div>
+                            {idx < 1 && (
+                                <div
+                                className={`w-12 md:w-24 h-1.5 mx-2 rounded-full transition-all duration-500 ${step > s.num ? "bg-linear-to-r from-rose-800 to-red-900" : "bg-stone-200"}`}
+                                />
+                            )}
+                            </div>
+                        )
+                        })}
+                    </div>
                 </div>
 
                 <div className="flex justify-center">
