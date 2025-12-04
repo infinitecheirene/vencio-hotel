@@ -133,31 +133,14 @@ export default function RestaurantPage (){
                             </CardDescription>
                         </CardHeader>
                         <CardContent>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                                <div
-                                className="w-full h-[90vh] bg-cover bg-center rounded-lg shadow-lg border-2 border-[#5C0A1E]"
-                                style={{
-                                    backgroundImage: "url('/resto-menu-1.jpg')",
-                                }}
-                                />
-                                <div
-                                className="w-full h-[90vh] bg-cover bg-center rounded-lg shadow-lg border-2 border-[#5C0A1E]"
-                                style={{
-                                    backgroundImage: "url('/resto-menu-3.jpg')",
-                                }}
-                                />
-                                <div
-                                className="w-full h-[90vh] bg-cover bg-center rounded-lg shadow-lg border-2 border-[#5C0A1E]"
-                                style={{
-                                    backgroundImage: "url('/resto-menu-4.jpg')",
-                                }}
-                                />
-                                <div
-                                className="w-full h-[90vh] bg-cover bg-center rounded-lg shadow-lg border-2 border-[#5C0A1E]"
-                                style={{
-                                    backgroundImage: "url('/resto-menu-5.jpg')",
-                                }}
-                                />
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {[1, 3, 4, 5].map((num) => (
+                                    <div
+                                        key={num}
+                                        className="w-full h-[90vh] bg-cover bg-center rounded-lg shadow-lg border-2 border-[#5C0A1E]"
+                                        style={{ backgroundImage: `url('/resto-menu-${num}.jpg')` }}
+                                    />
+                                ))}
                             </div>
                                 <div className="mt-10 mb-5 flex items-center justify-end">
                                     <Link href="/contact">
@@ -208,7 +191,7 @@ export default function RestaurantPage (){
                                 </div>
                             </div>
                                 <div className="mt-10 mb-5 flex items-center justify-end">
-                                    <Link href="/contact">
+                                    <Link href={'/restaurant/${restaurant.id}'}>
                                         <Button className="text-xl h-full w-42">
                                             Ready to Order?
                                         </Button>

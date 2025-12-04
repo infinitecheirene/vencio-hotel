@@ -4,13 +4,12 @@ import React from "react"
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
+import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Phone, Mail, Clock, Send, MessageCircle, CheckCircle2, Building2, HeartHandshake, MapPin, X } from "lucide-react"
+import { Phone, Mail, Clock, Send, MessageCircle, CheckCircle2, MapPin, X } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import Link from "next/link"
 import {
   Accordion,
   AccordionItem,
